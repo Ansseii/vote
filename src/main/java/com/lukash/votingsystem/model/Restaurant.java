@@ -1,5 +1,7 @@
 package com.lukash.votingsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -7,6 +9,7 @@ import java.util.List;
 @Table(name = "restaurant", uniqueConstraints = {@UniqueConstraint(name = "restaurant_uniq_name", columnNames = "name")})
 public class Restaurant extends AbstractNameEntity {
 
+    @JsonIgnore
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     private List<Lunch> menu;
 

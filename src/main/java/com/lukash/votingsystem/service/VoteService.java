@@ -44,7 +44,7 @@ public class VoteService {
 
         if (current.isPresent()) {
             if (LocalTime.now().isAfter(DEADLINE)) {
-                throw new LateForVoteException();
+                throw new LateForVoteException("You were voting today already");
             }
             created = current.get();
             created.setRestaurant(restaurant);
