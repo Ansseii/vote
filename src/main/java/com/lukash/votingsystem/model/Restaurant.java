@@ -7,7 +7,7 @@ import java.util.List;
 @Table(name = "restaurant", uniqueConstraints = {@UniqueConstraint(name = "restaurant_uniq_name", columnNames = "name")})
 public class Restaurant extends AbstractNameEntity {
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "restaurant")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "restaurant")
     private List<Lunch> menu;
 
     public Restaurant() {

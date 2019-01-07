@@ -1,5 +1,6 @@
 package com.lukash.votingsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.util.CollectionUtils;
 
@@ -23,6 +24,7 @@ public class User extends AbstractNameEntity implements Serializable {
     @Column(name = "password", nullable = false)
     @NotBlank
     @Length(min = 6, max = 100)
+    @JsonIgnore
     private String password;
 
     @Column(name = "registered")

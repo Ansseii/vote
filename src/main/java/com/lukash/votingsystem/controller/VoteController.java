@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -31,13 +32,12 @@ public class VoteController {
         this.restaurantService = restaurantService;
     }
 
+    @PreAuthorize(value = "hasRole('ROLE_ADMIN')")
     @GetMapping
     public List<Vote> getAll() {
         return voteService.getAll();
     }
-
     @PostMapping(value = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE)
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Vote> vote(@PathVariable("id") final Integer restaurantId) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         CustomUser customUser = (CustomUser) auth.getPrincipal();
