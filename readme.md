@@ -6,7 +6,9 @@
 * H2 as chosen database
 
 ## Curl commands
+
 ###For user
+
 ##### Get user by Email
 <code>
     curl -i http://localhost:8080/rest/admin/users/find?email=user_1@gmail.com --user admin_1@gmail.com:admin
