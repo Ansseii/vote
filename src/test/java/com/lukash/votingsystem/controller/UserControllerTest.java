@@ -27,9 +27,6 @@ public class UserControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private UserController controller;
-
     @Test
     public void getAllTest() throws Exception {
         mockMvc.perform(get(USER_REST_URL)

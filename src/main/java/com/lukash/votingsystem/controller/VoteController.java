@@ -43,6 +43,6 @@ public class VoteController {
         CustomUser customUser = (CustomUser) auth.getPrincipal();
         Integer userId = customUser.getUserId();
         Restaurant chosen = restaurantService.get(restaurantId);
-        return new ResponseEntity<>(voteService.saveOrUpdate(userId, chosen), HttpStatus.CREATED);
+        return new ResponseEntity<>(voteService.saveOrUpdate(userId, chosen), HttpStatus.OK);
     }
 }

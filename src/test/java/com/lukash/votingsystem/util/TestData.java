@@ -19,5 +19,4 @@ public class TestData {
     public static final Restaurant RESTAURANT_3 = new Restaurant(2, "Hooters");
 
     public static final Restaurant RESTAURANT_4 = new Restaurant(3, "Хочу Харчо");
-
 }
